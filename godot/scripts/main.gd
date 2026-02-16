@@ -130,20 +130,20 @@ func _lane_for_progress(start_lane: int, progress: float) -> int:
 
 
 func _point_on_track(s: float, lane_id: int) -> Vector3:
-	var lane_sign := -1.0 if lane_id == 0 else 1.0
-	var radius := CURVE_RADIUS_CENTER + lane_sign * (LANE_WIDTH * 0.5)
+	var lane_sign: float = -1.0 if lane_id == 0 else 1.0
+	var radius: float = CURVE_RADIUS_CENTER + lane_sign * (LANE_WIDTH * 0.5)
 
 	if s < 100.0:
-		var t1 := s / 100.0
-		return Vector3(lerp(-HALF_STRAIGHT, HALF_STRAIGHT, t1), 1.0, radius)
+		var t1: float = s / 100.0
+		return Vector3(lerpf(-HALF_STRAIGHT, HALF_STRAIGHT, t1), 1.0, radius)
 	elif s < 200.0:
-		var t2 := (s - 100.0) / 100.0
-		var ang2 := lerp(PI * 0.5, -PI * 0.5, t2)
+		var t2: float = (s - 100.0) / 100.0
+		var ang2: float = lerpf(PI * 0.5, -PI * 0.5, t2)
 		return Vector3(HALF_STRAIGHT + cos(ang2) * radius, 1.0, sin(ang2) * radius)
 	elif s < 300.0:
-		var t3 := (s - 200.0) / 100.0
-		return Vector3(lerp(HALF_STRAIGHT, -HALF_STRAIGHT, t3), 1.0, -radius)
+		var t3: float = (s - 200.0) / 100.0
+		return Vector3(lerpf(HALF_STRAIGHT, -HALF_STRAIGHT, t3), 1.0, -radius)
 	else:
-		var t4 := (s - 300.0) / 100.0
-		var ang4 := lerp(-PI * 0.5, PI * 0.5, t4)
+		var t4: float = (s - 300.0) / 100.0
+		var ang4: float = lerpf(-PI * 0.5, PI * 0.5, t4)
 		return Vector3(-HALF_STRAIGHT + cos(ang4) * radius, 1.0, sin(ang4) * radius)
