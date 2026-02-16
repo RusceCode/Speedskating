@@ -1,0 +1,126 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #22c55e;
+  --line: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #1e293b, var(--bg));
+  color: var(--text);
+}
+
+header {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+header h1,
+h2,
+h3 {
+  margin: 0.2rem 0;
+}
+
+header p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.panel {
+  background: color-mix(in srgb, var(--panel) 90%, black);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.stats {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  margin: 0.8rem 0;
+}
+
+.controls {
+  display: grid;
+  gap: 0.5rem;
+}
+
+select,
+button {
+  background: #0b1220;
+  border: 1px solid #334155;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #475569;
+}
+
+button.primary {
+  background: color-mix(in srgb, var(--primary) 30%, #0b1220);
+  border-color: color-mix(in srgb, var(--primary) 50%, #334155);
+}
+
+.roster {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.roster li {
+  border: 1px solid #233047;
+  border-radius: 8px;
+  padding: 0.45rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.scene {
+  width: 100%;
+  height: 420px;
+  border-radius: 10px;
+  border: 1px solid #233047;
+  overflow: hidden;
+}
+
+.race-info {
+  margin: 0.6rem 0;
+}
+
+.leaderboard {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
