@@ -14,13 +14,13 @@ def test_race_is_head_to_head_and_fixed_distance():
     assert result.winner in {"A", "B"}
 
 
-def test_lane_switching_happens_every_200m_on_400m_track():
+def test_lane_switching_happens_once_per_400m_lap():
     a = Skater("A", stamina=80, technique=80, sprint=80)
     b = Skater("B", stamina=80, technique=80, sprint=80)
 
     result = simulate_head_to_head_race(a, b, Distance.M1000, seed=1)
 
-    assert result.lane_switch_points_m == [200.0, 400.0, 600.0, 800.0]
+    assert result.lane_switch_points_m == [400.0, 800.0]
 
 
 def test_distance_catalog_is_official_style_long_track_set():

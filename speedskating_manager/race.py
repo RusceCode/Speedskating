@@ -60,7 +60,7 @@ def simulate_head_to_head_race(
     Rules represented:
     - race is always exactly two skaters
     - fixed long-track distances (Distance enum)
-    - 400m oval model with lane crossovers every 200m
+    - 400m long-track model with one crossover per lap (every 400m)
     """
     rng = Random(seed)
     track = LongTrack400m()
